@@ -1,17 +1,24 @@
-import React, { useState } from 'react';
-import './assets/index.css';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { addContactAction } from '../../redux/contacts/contactsSlice';
-import { useDispatch } from 'react-redux';
+import { selectContacts } from '../../redux/contacts/selectors';
+
+import './assets/index.css';
 
 const defaultState = {
   name: '',
   number: '',
 };
 
-export const ContactForm = ({ isNameExist }) => {
+export const ContactForm = () => {
   const [formData, setFormData] = useState(defaultState);
   const { name, number } = formData;
   const dispatch = useDispatch();
+  const contacts = useSelector(selectContacts);
+
+  const isNameExist = (newName) => {
+    return contacts.some(({ name }) => name.toLowerCase() === newName.toLowerCase());
+  };
 
   const clearState = () => {
     setFormData(defaultState);

@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { updateFilterAction } from '../../redux/filter/filterSlice';
+import { updateFilterAction } from '../../redux/contacts/contactsSlice';
 
 import './assets/inddex.css';
 
