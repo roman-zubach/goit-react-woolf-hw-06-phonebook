@@ -1,10 +1,6 @@
-import { useSelector } from 'react-redux';
 import { ContactForm, ContactList, Filter, Section } from './components';
-import { selectFilteredContacts } from './redux/contacts/selectors';
 
 const App = () => {
-  const contacts = useSelector(selectFilteredContacts);
-
   return (
     <div>
       <Section>
@@ -15,7 +11,7 @@ const App = () => {
       <Section>
         <h2>Contacts</h2>
         <Filter />
-        <ContactList contacts={contacts} />
+        <ContactList />
       </Section>
     </div>
   );
